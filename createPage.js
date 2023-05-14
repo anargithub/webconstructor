@@ -13,6 +13,12 @@ const selectComponent = index => {
 
 const savePage = () => {
     let pagesArray = JSON.parse(localStorage.getItem('pages')) || []
+    for(let page of pagesArray){
+        if(document.querySelector("#page_title").value == page.title){
+            alert ("Ошибка")
+            return;
+        }
+    }
     pagesArray.push({
         title: document.querySelector('#page_title').value,
         html: previewBox.innerHTML,

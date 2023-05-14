@@ -12,6 +12,13 @@ const button = document.querySelector('#create_btn')
     }
 
     let componentsArray = JSON.parse(localStorage.getItem('components')) || []
+    for(let componentArr of componentsArray){
+        if(componentArr.title == component.title ){
+            alert("Ошибка, компонент уже создан!")
+            return;
+        }
+        
+    }
     componentsArray.push(component)
     localStorage.setItem('components', JSON.stringify(componentsArray))
 
